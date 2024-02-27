@@ -10,6 +10,7 @@
 class UInputComponent;
 class USkeletalMeshComponent;
 class UCameraComponent;
+class UDuskHealthComponent;
 class UInputAction;
 class UInputMappingContext;
 struct FInputActionValue;
@@ -49,6 +50,9 @@ protected:
 
 public:
 		
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
+	UDuskHealthComponent* HealthComponent;
+
 	/** Look Input Action */
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	class UInputAction* LookAction;
@@ -71,6 +75,9 @@ protected:
 
 	/** Called for looking input */
 	void Look(const FInputActionValue& Value);
+	
+	UFUNCTION()
+	void HandleDeath(AActor* KilledActor, AController* KillerController);
 
 protected:
 	// APawn interface
