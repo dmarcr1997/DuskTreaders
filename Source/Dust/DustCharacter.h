@@ -11,6 +11,7 @@ class UInputComponent;
 class USkeletalMeshComponent;
 class UCameraComponent;
 class UDuskHealthComponent;
+class UDuskInventoryComponent;
 class UInputAction;
 class UInputMappingContext;
 struct FInputActionValue;
@@ -50,6 +51,9 @@ protected:
 
 public:
 		
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
+	UDuskInventoryComponent* InventoryComponent;
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	UDuskHealthComponent* HealthComponent;
 
